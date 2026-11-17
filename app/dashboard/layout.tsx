@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Sidebar } from "../components";
 
 export const metadata: Metadata = {
   title: "Title",
@@ -11,8 +12,9 @@ export default function DashboardPage({
   children: React.ReactNode;
 }) {
   return (
-    <div>
-      <h1>{children}</h1>
+    <div className="grid h-screen w-screen bg-slate-800 layout-grid">
+      <Sidebar />
+      <main className="h-screen">{children}</main>
     </div>
   );
 }
