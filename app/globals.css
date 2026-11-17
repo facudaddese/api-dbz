@@ -1,1 +1,9 @@
 @import "tailwindcss";
+
+@utility layout-grid {
+  grid-template-areas:
+    "sidebar main"
+    "sidebar main"
+    "sidebar main";
+  grid-template-columns: 270px 1fr;
+}
