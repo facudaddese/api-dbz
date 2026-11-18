@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: "Description",
 };
 
-export default function DashboardPage({
+export default function DashboardLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -14,7 +14,7 @@ export default function DashboardPage({
   return (
     <div className="grid h-screen w-screen bg-slate-800 layout-grid">
       <Sidebar />
-      <main className="h-screen">{children}</main>
+      <main className="min-h-screen overflow-hidden overflow-y-auto">{children}</main>
     </div>
   );
 }
