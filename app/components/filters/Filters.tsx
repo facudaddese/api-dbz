@@ -38,6 +38,7 @@ export const Filters = () => {
 
         {/* Ordenar */}
         <select name="sort" defaultValue="name-asc" className={stylesSelect}>
+          <option value="">Ordenar por</option>
           <option value="name-asc">Nombre: A-Z</option>
           <option value="name-desc">Nombre: Z-A</option>
           <option value="ki-asc">Ki: menor a mayor</option>

@@ -24,13 +24,13 @@ export const CharacterCard = ({ character }: CharacterCardProps) => {
       />
       <div className="flex flex-col justify-center items-center gap-1 p-4">
         <h2 className="text-3xl font-bold">{name}</h2>
-        <span className="text-[14px] rounded-xl border border-yellow-400/95 px-2">
+        <span className="text-[14px] rounded-xl text-yellow-400/95 px-2">
           {race}
         </span>
       </div>
       <Link
         href={`/dashboard/character/${id}`}
-        className="rounded-2xl border mt-2 p-1 w-30 text-center hover:bg-yellow-400/95 hover:text-black hover:font-bold"
+        className="mt-2 p-1 w-30 text-center hover:bg-yellow-400/95 hover:text-black hover:font-bold bg-slate-800 text-white rounded-2xl cursor-pointer"
       >
         Más detalles
       </Link>
