@@ -31,7 +31,7 @@ export const Sidebar = () => {
   ];
   return (
     <aside className="[grid-area:sidebar] border border-r-gray-100/20 p-2">
-      <div>
+      <div className="w-full">
         <Image src={logo} alt="Logo de Dragon Ball Z" />
       </div>
       <SidebarMenu sidebarItems={sidebarItems} />

@@ -3,10 +3,11 @@ import { CharacterCard } from "./CharacterCard";
 import { Filters } from "../filters/Filters";
 
 interface CharactersGridProps {
-  characters: Item[];
+  characters: Item[] | null;
 }
 
 export const CharactersGrid = ({ characters }: CharactersGridProps) => {
+  if (!characters) return;
   return (
     <section>
       <Filters />

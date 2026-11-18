@@ -4,11 +4,11 @@ import type { Metadata } from "next";
 import { cacheLife } from "next/cache";
 
 export const metadata: Metadata = {
-  title: "Characters",
+  title: "Dragon Ball Explorer",
   description: "Description",
 };
 
-const getCharacters = async (limit: number): Promise<Item[]> => {
+const getCharacters = async (limit: number): Promise<Item[] | null> => {
   "use cache";
   cacheLife("hours");
   const res = await fetch(
@@ -20,6 +20,6 @@ const getCharacters = async (limit: number): Promise<Item[]> => {
 };
 
 export default async function CharactersPage() {
-  const characters = await getCharacters(12);
+  const characters = await getCharacters(20);
   return <CharactersGrid characters={characters} />;
 }
