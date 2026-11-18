@@ -13,8 +13,30 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Dragon Ball",
-  description: "Dashboard de personajes de Dragon Ball Z",
+  title: {
+    default: "Dragon Ball Explorer",
+    template: "%s | Dragon Ball Explorer",
+  },
+  description:
+    "Explorá el universo de Dragon Ball Z. Descubrí personajes, transformaciones, planetas y mucho más.",
+  applicationName: "Dragon Ball Explorer",
+  keywords: [
+    "Dragon Ball",
+    "Dragon Ball Z",
+    "Personajes",
+    "Saiyajins",
+    "Transformaciones",
+    "Dragon Ball Explorer",
+  ],
+  authors: [{ name: "Facundo Daddese" }],
+  openGraph: {
+    title: "Dragon Ball Explorer",
+    description:
+      "Explorá personajes, transformaciones y todo el universo de Dragon Ball Z.",
+    siteName: "Dragon Ball Explorer",
+    locale: "es_AR",
+    type: "website",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

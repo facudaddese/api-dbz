@@ -13,3 +13,8 @@
 @utility characters-grid {
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
 }
+
+/* CharacterContent (Page.tsx)*/
+@utility character-grid {
+  grid-template-columns: repeat(2, auto);
+}

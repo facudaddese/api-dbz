@@ -1,10 +1,4 @@
-import type { Metadata } from "next";
 import { Sidebar } from "../components";
-
-export const metadata: Metadata = {
-  title: "Title",
-  description: "Description",
-};
 
 export default function DashboardLayout({
   children,
