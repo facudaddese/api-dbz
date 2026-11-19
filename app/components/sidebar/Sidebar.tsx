@@ -1,32 +1,17 @@
 import Image from "next/image";
 import { SidebarMenu } from "./SidebarMenu";
-import {
-  UsersRound,
-  Heart,
-  Zap,
-  Skull,
-  Sparkles,
-  Globe,
-  Trophy,
-} from "lucide-react";
 import logo from "../../../public/img-dashboard.png";
+import { Suspense } from "react";
 
 const sidebarItems = [
-  { icon: UsersRound, label: "Personajes", href: "/dashboard/characters" },
-  { icon: Heart, label: "Favoritos", href: "/dashboard/favorites" },
+  { label: "Personajes", href: "/dashboard/characters" },
+  { label: "Favoritos", href: "/dashboard/favorites" },
+  { label: "Villanos", href: "/dashboard/villains" },
   {
-    icon: Zap,
-    label: "Super Saiyajines",
-    href: "/dashboard/saiyajines",
-  },
-  { icon: Skull, label: "Villanos", href: "/dashboard/villains" },
-  {
-    icon: Sparkles,
     label: "Transformaciones",
     href: "/dashboard/transformations",
   },
-  { icon: Globe, label: "Planetas", href: "/dashboard/planets" },
-  { icon: Trophy, label: "Torneos", href: "/dashboard/tournaments" },
+  { label: "Planetas", href: "/dashboard/planets" },
 ];
 
 export const Sidebar = () => {
@@ -37,11 +22,14 @@ export const Sidebar = () => {
           src={logo}
           width={200}
           height={200}
+          loading="eager"
           alt="Logo de Dragon Ball"
-          className="object-contain max-h-100"
+          className="object-contain w-100"
         />
       </div>
-      <SidebarMenu sidebarItems={sidebarItems} />
+      <Suspense>
+        <SidebarMenu sidebarItems={sidebarItems} />
+      </Suspense>
     </aside>
   );
 };
