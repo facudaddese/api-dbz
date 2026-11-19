@@ -16,5 +16,5 @@
 
 /* CharacterContent (Page.tsx)*/
 @utility character-grid {
-  grid-template-columns: repeat(2, auto);
+  grid-template-columns:  auto auto;
 }

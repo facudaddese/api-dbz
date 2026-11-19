@@ -9,7 +9,7 @@ export interface Item {
   name: string;
   ki: string;
   maxKi: string;
-  race: string;
+  race: Race;
   gender: Gender;
   description: string;
   image: string;
@@ -17,9 +17,24 @@ export interface Item {
   deletedAt: null;
 }
 
-export type Affiliation = "Z Fighter" | "Army of Frieza" | "Freelancer";
+export type Affiliation = "Z Fighter" | "Army of Frieza";
 
 export type Gender = "Male" | "Female";
+
+export type Race =
+  | "Saiyan"
+  | "Human"
+  | "Android"
+  | "Nucleico benigno"
+  | "Nucleico"
+  | "Frieza Race"
+  | "God"
+  | "Namekian"
+  | "Angel"
+  | "Majin"
+  | "Unknown"
+  | "Jiren Race"
+  | "Evil";
 
 export interface Links {
   first: string;
@@ -41,7 +56,7 @@ export interface Character {
   name: string;
   ki: string;
   maxKi: string;
-  race: string;
+  race: Race;
   gender: string;
   description: string;
   image: string;

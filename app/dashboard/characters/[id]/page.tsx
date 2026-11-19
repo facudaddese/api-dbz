@@ -1,7 +1,8 @@
-import { Character } from "@/app/types";
+import { Character, Characters } from "@/app/types";
 import { Metadata } from "next";
 import { cacheLife } from "next/cache";
 import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 
@@ -22,6 +23,12 @@ export const generateMetadata = async ({
   };
 };
 
+export async function generateStaticParams(): Promise<{ id: string }[]> {
+  const res = await fetch("https://dragonball-api.com/api/characters?page=1");
+  const data: Characters = await res.json();
+  return data.items.map(({ id }) => ({ id: String(id) }));
+}
+
 export const getCharacter = async (id: number): Promise<Character | null> => {
   "use cache";
   cacheLife("hours");
@@ -38,7 +45,7 @@ const stylesSpan = "text-slate-400";
 export const CharacterContent = async ({ params }: Props) => {
   const { id } = await params;
   const character = await getCharacter(Number(id));
-  if (!character) return;
+  if (!character) notFound();
   const { name, image, race, gender, affiliation, ki, maxKi, description } =
     character;
 
@@ -59,7 +66,7 @@ export const CharacterContent = async ({ params }: Props) => {
           <span className={`${styleCharacter}`}>{race}</span>
         </div>
         <p className="text-slate-300 max-w-150">{description}</p>
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 gap-4 pb-5">
           <div>
             <span className={`${stylesSpan}`}>Género</span>
             <p className={`${styleCharacter}`}>{gender}</p>
@@ -72,11 +79,18 @@ export const CharacterContent = async ({ params }: Props) => {
             <span className={`${stylesSpan}`}>Ki</span>
             <p className={`${styleCharacter}`}>{ki}</p>
           </div>
-
           <div>
             <span className={`${stylesSpan}`}>Ki máximo</span>
             <p className={`${styleCharacter}`}>{maxKi}</p>
           </div>
+        </div>
+        <div>
+          <Link
+            href={"/dashboard/transformations/"}
+            className="bg-slate-700 text-white p-2 rounded-2xl font-semibold hover:bg-slate-600"
+          >
+            Ver transformaciones
+          </Link>
         </div>
       </div>
     </section>
