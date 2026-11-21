@@ -2,9 +2,11 @@ import { useState } from "react";
 import { Affiliation, Gender, Race } from "../types";
 
 export const useFilters = () => {
-  const [race, setRace] = useState<Race | undefined>();
-  const [gender, setGender] = useState<Gender | undefined>();
-  const [affiliation, setAffiliation] = useState<Affiliation | undefined>();
+  const [race, setRace] = useState<Race | undefined | string>();
+  const [gender, setGender] = useState<Gender | undefined | string>();
+  const [affiliation, setAffiliation] = useState<
+    Affiliation | undefined | string
+  >();
   const [sort, setSort] = useState("");
   const [input, setInput] = useState("");
 
@@ -25,6 +27,13 @@ export const useFilters = () => {
   const handleInput = ({ target }: React.ChangeEvent<HTMLInputElement>) =>
     setInput(target.value);
 
+  const handleClear = () => {
+    setRace("");
+    setGender("");
+    setAffiliation("");
+    setSort("");
+  };
+
   return {
     race,
     handleRace,
@@ -36,5 +45,6 @@ export const useFilters = () => {
     handleSort,
     input,
     handleInput,
+    handleClear,
   };
 };

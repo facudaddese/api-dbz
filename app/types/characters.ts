@@ -17,7 +17,7 @@ export interface Item {
   deletedAt: null;
 }
 
-export type Affiliation = "Z Fighter" | "Army of Frieza";
+export type Affiliation = "Z Fighter" | "Army of Frieza" | "Freelancer";
 
 export type Gender = "Male" | "Female";
 

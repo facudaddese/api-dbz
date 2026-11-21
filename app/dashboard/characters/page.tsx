@@ -31,7 +31,7 @@ export const getCharacters = async (): Promise<Item[]> => {
     return charactersAux;
   } catch (error) {
     console.error(error);
-    throw new Error("No se pudieron traer los personajes");
+    throw new Error("Error retrieving characters");
   }
 };
 

@@ -34,7 +34,7 @@ export const getCharacter = async (id: number): Promise<Character | null> => {
   cacheLife("hours");
   const res = await fetch(`https://dragonball-api.com/api/characters/${id}`);
   if (res.status === 400) return null;
-  if (!res.ok) throw new Error("Error al obtener el personaje");
+  if (!res.ok) throw new Error("Error retrieving characters");
   const data: Character = await res.json();
   return data;
 };

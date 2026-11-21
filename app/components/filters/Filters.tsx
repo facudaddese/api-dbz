@@ -1,16 +1,38 @@
 "use client";
 
-import { ChangeEventHandler } from "react";
+import { Affiliation, Race, Gender } from "@/app/types";
+import { ChangeEventHandler, MouseEventHandler } from "react";
 
 interface FiltersProps {
+  race: Race | undefined | string;
+  handleRace: ChangeEventHandler<HTMLSelectElement>;
+  affiliation: Affiliation | undefined | string;
+  handleAffiliation: ChangeEventHandler<HTMLSelectElement>;
+  gender: Gender | undefined | string;
+  handleGender: ChangeEventHandler<HTMLSelectElement>;
+  sort: string;
+  handleSort: ChangeEventHandler<HTMLSelectElement>;
   input: string;
   handleInput: ChangeEventHandler<HTMLInputElement>;
+  handleClear: MouseEventHandler<HTMLButtonElement>;
 }
 
 const stylesSelect =
   "rounded-xl w-52 border border-slate-600 bg-slate-900 px-4 py-2 text-white outline-none focus:border-yellow-400/95";
 
-export const Filters = ({ input, handleInput }: FiltersProps) => {
+export const Filters = ({
+  race,
+  handleRace,
+  affiliation,
+  handleAffiliation,
+  gender,
+  handleGender,
+  sort,
+  handleSort,
+  input,
+  handleInput,
+  handleClear,
+}: FiltersProps) => {
   return (
     <div className="flex flex-wrap flex-col items-center gap-5 p-3">
       <input
@@ -23,7 +45,12 @@ export const Filters = ({ input, handleInput }: FiltersProps) => {
       />
       <div className="flex items-center justify-center flex-wrap gap-3">
         {/* Raza */}
-        <select name="race" defaultValue="" className={stylesSelect}>
+        <select
+          name="race"
+          className={stylesSelect}
+          value={race}
+          onChange={handleRace}
+        >
           <option value="">Todas las razas</option>
           <option value="Saiyan">Saiyajin</option>
           <option value="Human">Humano</option>
@@ -38,15 +65,24 @@ export const Filters = ({ input, handleInput }: FiltersProps) => {
         </select>
 
         {/* Género */}
-        <select name="gender" defaultValue="" className={stylesSelect}>
+        <select
+          name="gender"
+          className={stylesSelect}
+          value={gender}
+          onChange={handleGender}
+        >
           <option value="">Todos los géneros</option>
           <option value="Male">Masculino</option>
           <option value="Female">Femenino</option>
-          <option value="Unknown">Desconocido</option>
         </select>
 
         {/* Afiliación */}
-        <select name="affiliation" defaultValue="" className={stylesSelect}>
+        <select
+          name="affiliation"
+          className={stylesSelect}
+          value={affiliation}
+          onChange={handleAffiliation}
+        >
           <option value="">Todas las afiliaciones</option>
           <option value="Z Fighter">Guerreros Z</option>
           <option value="Army of Frieza">Ejército de Freezer</option>
@@ -54,16 +90,22 @@ export const Filters = ({ input, handleInput }: FiltersProps) => {
         </select>
 
         {/* Ordenar */}
-        <select name="sort" defaultValue="" className={stylesSelect}>
+        <select
+          name="sort"
+          className={stylesSelect}
+          value={sort}
+          onChange={handleSort}
+        >
           <option value="">Ordenar por</option>
           <option value="name-asc">Nombre: A-Z</option>
           <option value="name-desc">Nombre: Z-A</option>
-          <option value="ki-asc">Ki: menor a mayor</option>
-          <option value="ki-desc">Ki: mayor a menor</option>
         </select>
 
         {/* Limpiar filtros */}
-        <button className="bg-slate-700 text-white py-1 px-3 rounded-2xl cursor-pointer hover:bg-amber-500/95 hover:text-black font-semibold">
+        <button
+          onClick={handleClear}
+          className="bg-slate-700 text-white py-1 px-3 rounded-2xl cursor-pointer hover:bg-amber-500/95 hover:text-black font-semibold"
+        >
           Limpiar filtros
         </button>
       </div>
