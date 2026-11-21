@@ -8,12 +8,10 @@ interface CharactersGridProps {
 export const CharactersGrid = ({ characters }: CharactersGridProps) => {
   if (!characters) return;
   return (
-    <section>
-      <div className="grid gap-4 place-content-center p-5 characters-grid">
-        {characters.map((item) => (
-          <CharacterCard key={item.id} character={item} />
-        ))}
-      </div>
+    <section className="grid gap-4 place-content-center p-5 characters-grid">
+      {characters.map((item) => (
+        <CharacterCard key={item.id} character={item} />
+      ))}
     </section>
   );
 };
