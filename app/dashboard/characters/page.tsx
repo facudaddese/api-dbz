@@ -31,7 +31,7 @@ export const getCharacters = async (): Promise<Item[]> => {
     return charactersAux;
   } catch (error) {
     console.error(error);
-    throw new Error("Error retrieving characters");
+    throw new Error("Error al obtener los personajes");
   }
 };
 
@@ -43,7 +43,7 @@ export async function CharactersList() {
 export default async function CharactersPage() {
   return (
     <div className="text-white">
-      <Suspense fallback="Loading characters...">
+      <Suspense fallback="Cargando personajes...">
         <CharactersList />
       </Suspense>
     </div>

@@ -34,7 +34,7 @@ export const getCharacter = async (id: number): Promise<Character | null> => {
   cacheLife("hours");
   const res = await fetch(`https://dragonball-api.com/api/characters/${id}`);
   if (res.status === 400) return null;
-  if (!res.ok) throw new Error("Error retrieving characters");
+  if (!res.ok) throw new Error("Error al obtener los personajes");
   const data: Character = await res.json();
   return data;
 };
@@ -100,7 +100,7 @@ export const CharacterContent = async ({ params }: Props) => {
 export default function CharacterPage({ params }: Props) {
   return (
     <div className="text-white">
-      <Suspense fallback="Loading character...">
+      <Suspense fallback="Cargando personaje...">
         <CharacterContent params={params} />
       </Suspense>
     </div>
