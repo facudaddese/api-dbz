@@ -1,40 +1,24 @@
-import { useAppDispatch, useAppSelector } from "@/app/store";
-import { addFav, deleteFav } from "@/app/store/CharactersSlice";
-import { Item } from "@/app/types/characters";
-import { Star } from "lucide-react";
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-
-const stylesStar = "cursor-pointer text-white";
+import { Item, Transformation } from "@/app/types";
+import { usePathname } from "next/navigation";
+import IsFavorite from "@/app/dashboard/characters/IsFavorite";
 
 interface CharacterCardProps {
-  character: Item;
+  character: Item | Transformation;
 }
 
 export const CharacterCard = ({ character }: CharacterCardProps) => {
-  const { id, name, image, race } = character;
-  const isFavorite = useAppSelector((state) =>
-    state.characters.favorites.some((item) => item.id === id),
-  );
-  const dispatch = useAppDispatch();
+  const { id, name, image } = character;
+  const race = "race" in character ? character.race : null;
+  const path = usePathname();
 
   return (
     <div className="flex flex-col items-center p-3 rounded-2xl bg-slate-700/20 hover:bg-slate-700/80">
       <div className="flex justify-end w-full z-200">
-        {isFavorite ? (
-          <Star
-            size={20}
-            fill="currentColor"
-            className={`${stylesStar}`}
-            onClick={() => dispatch(deleteFav({ id }))}
-          />
-        ) : (
-          <Star
-            size={20}
-            className={`${stylesStar}`}
-            onClick={() => dispatch(addFav({ character }))}
-          />
-        )}
+        <IsFavorite character={character} />
       </div>
       <Image
         src={image}
@@ -50,12 +34,14 @@ export const CharacterCard = ({ character }: CharacterCardProps) => {
           {race}
         </span>
       </div>
-      <Link
-        href={`/dashboard/characters/${id}`}
-        className="mt-2 p-1 w-30 text-center hover:bg-amber-500/95 hover:text-black hover:font-bold bg-slate-900 text-white rounded-2xl cursor-pointer font-semibold"
-      >
-        Ver detalles
-      </Link>
+      {path === "/dashboard/characters" && (
+        <Link
+          href={`/dashboard/characters/${id}`}
+          className="mt-2 p-1 w-30 text-center hover:bg-amber-500/95 hover:text-black hover:font-bold bg-slate-900 text-white rounded-2xl cursor-pointer font-semibold"
+        >
+          Ver detalles
+        </Link>
+      )}
     </div>
   );
 };

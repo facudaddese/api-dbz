@@ -5,6 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
+import IsFavorite from "../IsFavorite";
+// import ReturnPage from "../Return";
 
 interface Props {
   params: Promise<{ id: string }>;
@@ -44,14 +46,28 @@ const stylesSpan = "text-slate-400";
 
 export const CharacterContent = async ({ params }: Props) => {
   const { id } = await params;
+
   const character = await getCharacter(Number(id));
   if (!character) notFound();
-  const { name, image, race, gender, affiliation, ki, maxKi, description } =
-    character;
+  const {
+    name,
+    image,
+    race,
+    gender,
+    affiliation,
+    ki,
+    maxKi,
+    description,
+    transformations,
+  } = character;
 
   return (
     <section className="grid place-content-center justify-evenly gap-5 p-5 md:h-screen grid-cols-1 md:character-grid">
-      <div className="flex items-center justify-end">
+      <div className="flex flex-col items-center justify-end">
+        {/* Revisar cuando se haga responsive */}
+        {/* <div className="w-full">
+          <ReturnPage />
+        </div> */}
         <Image
           src={image}
           alt={name}
@@ -62,7 +78,10 @@ export const CharacterContent = async ({ params }: Props) => {
       </div>
       <div className="flex flex-col justify-center gap-5 py-5">
         <div>
-          <h1 className="text-5xl font-bold">{name}</h1>
+          <div className="flex items-center gap-3">
+            <h1 className="text-5xl font-bold">{name}</h1>
+            <IsFavorite character={character} />
+          </div>
           <span className={`${styleCharacter}`}>{race}</span>
         </div>
         <p className="text-slate-300 max-w-150">{description}</p>
@@ -85,12 +104,14 @@ export const CharacterContent = async ({ params }: Props) => {
           </div>
         </div>
         <div>
-          <Link
-            href={"/dashboard/transformations/"}
-            className="bg-slate-700 text-white p-2 rounded-2xl font-semibold hover:bg-slate-600"
-          >
-            Ver transformaciones
-          </Link>
+          {transformations.length > 0 && (
+            <Link
+              href={`/dashboard/transformations/${id}`}
+              className="bg-slate-700 text-white py-2 px-3 rounded-2xl font-semibold hover:bg-slate-600"
+            >
+              Ver transformaciones
+            </Link>
+          )}
         </div>
       </div>
     </section>
