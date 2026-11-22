@@ -9,7 +9,6 @@ import { ArrowUp } from "lucide-react";
 const sidebarItems = [
   { label: "Personajes", href: "/dashboard/characters" },
   { label: "Favoritos", href: "/dashboard/favorites" },
-  { label: "Villanos", href: "/dashboard/villains" },
   {
     label: "Transformaciones",
     href: "/dashboard/transformations",
@@ -50,14 +49,14 @@ export const Sidebar = () => {
       </div>
       {view && (
         <div
-          className="flex justify-center w-10 mx-2 cursor-pointer rounded-full bg-slate-700 p-1 hover:scale-[1.1] "
+          className="flex justify-center w-10 mx-2 cursor-pointer rounded-full bg-slate-700 p-1 hover:scale-[1.1]"
           onClick={() =>
             document
               .querySelector("main")
               ?.scrollTo({ top: 0, behavior: "smooth" })
           }
         >
-          <ArrowUp size={30} className="text-white hover:scale-[1.1]" />
+          <ArrowUp size={30} className="text-white" />
         </div>
       )}
     </aside>

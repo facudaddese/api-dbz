@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Item } from "../types/characters";
+import { Item, Transformation } from "../types/characters";
 
 interface InitialState {
-  favorites: Item[];
+  favorites: (Item | Transformation)[];
 }
 
 const initialState: InitialState = {
@@ -13,7 +13,10 @@ const CharactersSlice = createSlice({
   name: "favorites",
   initialState,
   reducers: {
-    addFav: (state, action: PayloadAction<{ character: Item }>) => {
+    addFav: (
+      state,
+      action: PayloadAction<{ character: Item | Transformation }>,
+    ) => {
       const exists = state.favorites.some(
         (item) => item.id === action.payload.character.id,
       );
@@ -27,9 +30,13 @@ const CharactersSlice = createSlice({
     clearFav: (state) => {
       state.favorites = [];
     },
+    setFavorites: (state, action: PayloadAction<Item[]>) => {
+      state.favorites = action.payload;
+    },
   },
 });
 
-export const { addFav, deleteFav, clearFav } = CharactersSlice.actions;
+export const { addFav, deleteFav, clearFav, setFavorites } =
+  CharactersSlice.actions;
 
 export default CharactersSlice.reducer;

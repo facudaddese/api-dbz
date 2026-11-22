@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./store";
+import FavoritesPersistence from "./store/FavoritesPersistence";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -48,7 +49,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-full flex flex-col overflow-hidden">
         <div className="grid">
-          <Providers>{children}</Providers>
+          <Providers>
+            <FavoritesPersistence />
+            {children}
+          </Providers>
         </div>
       </body>
     </html>

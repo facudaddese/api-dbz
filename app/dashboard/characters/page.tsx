@@ -3,7 +3,7 @@ import { Characters, Item } from "@/app/types/characters";
 import type { Metadata } from "next";
 import { cacheLife } from "next/cache";
 import { Suspense } from "react";
-import CharactersContent from "./CharactersContent";
+import CharactersContent from "./CharactersFilters";
 
 export const metadata: Metadata = {
   title: "Personajes",

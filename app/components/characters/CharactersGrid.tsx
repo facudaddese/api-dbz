@@ -1,8 +1,8 @@
-import { Item } from "@/app/types/characters";
+import { Item, Transformation } from "@/app/types";
 import { CharacterCard } from "./CharacterCard";
 
 interface CharactersGridProps {
-  characters: Item[] | null;
+  characters: (Item | Transformation)[] | null;
 }
 
 export const CharactersGrid = ({ characters }: CharactersGridProps) => {
