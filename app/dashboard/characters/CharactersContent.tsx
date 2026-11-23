@@ -1,7 +1,7 @@
 "use client";
 
 import { CharactersGrid } from "@/app/components/characters/CharactersGrid";
-import { Filters } from "@/app/components/filters/Filters";
+import { Filters } from "@/app/components/filters/characters/Filters";
 import { useFilters } from "@/app/hooks/useFilters";
 import { Item } from "@/app/types";
 

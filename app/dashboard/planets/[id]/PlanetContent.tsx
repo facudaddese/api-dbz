@@ -42,7 +42,7 @@ export const PlanetContent = async ({ params }: Props) => {
             <span
               className={`${isDestroyed ? "text-red-400" : "text-emerald-400"}`}
             >
-              {isDestroyed ? "Planeta destruido" : "Planeta intacto"}
+              {isDestroyed ? "Planeta destruido" : "Planeta vigente"}
             </span>
           </div>
           <p className="text-slate-300 max-w-150 xl:text-start text-center">

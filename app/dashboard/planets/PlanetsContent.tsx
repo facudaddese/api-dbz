@@ -1,10 +1,10 @@
 import { PlanetsGrid } from "@/app/components";
 import { Planet } from "@/app/types";
 
-interface InterfacePlanetsProps {
+interface PlanetsProps {
   planets: Planet[];
 }
 
-export default function PlanetsContent({ planets }: InterfacePlanetsProps) {
+export default function PlanetsContent({ planets }: PlanetsProps) {
   return <PlanetsGrid planets={planets} />;
 }

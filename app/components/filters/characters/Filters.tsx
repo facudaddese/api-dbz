@@ -18,7 +18,7 @@ interface FiltersProps {
 }
 
 const stylesSelect =
-  "rounded-xl w-52 border border-slate-600 bg-slate-900 px-4 py-2 text-white outline-none focus:border-yellow-400/95";
+  "rounded-xl w-52 border border-slate-600 bg-slate-900 px-4 py-2 text-white outline-none focus:border-amber-500/95";
 
 export const Filters = ({
   race,
