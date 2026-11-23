@@ -1,9 +1,8 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Item } from "../types";
-import { FavoriteType, getFavoriteType, isSameFavorite } from "../lib";
+import { Item, Transformation } from "../types";
 
 interface InitialState {
-  favorites: Item[];
+  favorites: (Item | Transformation)[];
 }
 
 const initialState: InitialState = {
@@ -14,22 +13,18 @@ const CharactersSlice = createSlice({
   name: "favorites",
   initialState,
   reducers: {
-    addFav: (state, action: PayloadAction<{ character: Item }>) => {
-      const exists = state.favorites.some((item) =>
-        isSameFavorite(item, action.payload.character),
+    addFav: (
+      state,
+      action: PayloadAction<{ character: Item | Transformation }>,
+    ) => {
+      const exists = state.favorites.some(
+        (item) => item.id === action.payload.character.id,
       );
       if (!exists) state.favorites.push(action.payload.character);
     },
-    deleteFav: (
-      state,
-      action: PayloadAction<{ id: number; type: FavoriteType }>,
-    ) => {
+    deleteFav: (state, action: PayloadAction<{ id: number }>) => {
       state.favorites = state.favorites.filter(
-        (item) =>
-          !(
-            item.id === action.payload.id &&
-            getFavoriteType(item) === action.payload.type
-          ),
+        (item) => item.id !== action.payload.id,
       );
     },
     clearFav: (state) => {

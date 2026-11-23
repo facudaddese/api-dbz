@@ -1,8 +1,9 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getPlanet } from "@/app/lib/planets";
+import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
 import { CharactersGrid } from "@/app/components";
-import { BackButton } from "@/app/components/back-button/BackButton";
 
 interface Props {
   params: Promise<{ id: string }>;
@@ -17,7 +18,13 @@ export const PlanetContent = async ({ params }: Props) => {
   return (
     <section className="p-5">
       {/* Regresar a planetas */}
-      <BackButton href="/dashboard/planets" />
+      <div className="w-10">
+        <Link href={"/dashboard/planets"}>
+          <div className="w-full cursor-pointer rounded-full bg-slate-700 p-1 hover:scale-[1.1]">
+            <ArrowLeft size={30} />
+          </div>
+        </Link>
+      </div>
 
       {/* Descripcion del planeta */}
       <div className="flex gap-15 justify-center flex-wrap py-5">
@@ -47,9 +54,7 @@ export const PlanetContent = async ({ params }: Props) => {
       {/* Habitantes */}
       {characters.length > 0 && (
         <div className="pt-4">
-          <h3 className="font-semibold text-center text-3xl pb-3">
-            Habitantes
-          </h3>
+          <h3 className="font-semibold text-center text-3xl pb-3">Habitantes</h3>
           <CharactersGrid characters={characters} />
         </div>
       )}
