@@ -1,3 +1,6 @@
+import { ItemPlanet } from "./planets";
+import { Transformation } from "./transformations";
+
 export interface Characters {
   items: Item[];
   meta: Meta;
@@ -62,23 +65,6 @@ export interface Character {
   image: string;
   affiliation: string;
   deletedAt: null;
-  originPlanet: OriginPlanet;
+  originPlanet: ItemPlanet;
   transformations: Transformation[];
-}
-
-export interface OriginPlanet {
-  id: number;
-  name: string;
-  isDestroyed: boolean;
-  description: string;
-  image: string;
-  deletedAt: null;
-}
-
-export interface Transformation {
-  id: number;
-  name: string;
-  image: string;
-  ki: string;
-  deletedAt: null;
 }

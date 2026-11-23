@@ -4,9 +4,14 @@ import Link from "next/link";
 
 export default function NotFoundPage() {
   return (
-    <div className="flex flex-col items-center justify-center h-screen">
-      <Image src={notFound} alt="Not Found" className="w-200" />
-      <Link href={"/dashboard/characters"} className="border border-amber-600 hover:bg-amber-500/95 rounded-2xl p-2 font-bold">Volver a personajes</Link>
+    <div className="flex flex-col items-center justify-center h-screen bg-slate-800">
+      <Image src={notFound} alt="Not Found" className="w-200" loading="eager" />
+      <Link
+        href={"/dashboard/characters"}
+        className="bg-slate-700 text-white py-1 px-3 rounded-2xl cursor-pointer hover:bg-amber-500/95 hover:text-black font-semibold"
+      >
+        Volver a personajes
+      </Link>
     </div>
   );
 }

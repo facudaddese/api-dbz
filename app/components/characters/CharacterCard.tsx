@@ -26,7 +26,7 @@ export const CharacterCard = ({ character }: CharacterCardProps) => {
         width={200}
         height={200}
         loading="eager"
-        className="w-100 h-80 object-contain transition-transform duration-500 ease-in-out hover:scale-[1.2]"
+        className="w-full h-80 object-contain transition-transform duration-500 ease-in-out hover:scale-[1.2]"
       />
       <div className="flex flex-col justify-center items-center gap-1 p-4">
         <h2 className="text-3xl font-bold text-white">{name}</h2>
@@ -34,7 +34,7 @@ export const CharacterCard = ({ character }: CharacterCardProps) => {
           {race}
         </span>
       </div>
-      {path === "/dashboard/characters" && (
+      {path !== "/dashboard/transformations" && (
         <Link
           href={`/dashboard/characters/${id}`}
           className="mt-2 p-1 w-30 text-center hover:bg-amber-500/95 hover:text-black hover:font-bold bg-slate-900 text-white rounded-2xl cursor-pointer font-semibold"

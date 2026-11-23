@@ -5,13 +5,13 @@ import { Filters } from "@/app/components/filters/Filters";
 import { useFilters } from "@/app/hooks/useFilters";
 import { Item } from "@/app/types";
 
-interface CharactersFiltersProps {
+interface CharactersContentProps {
   characters: Item[];
 }
 
-export default function CharactersFilters({
+export default function CharactersContent({
   characters,
-}: CharactersFiltersProps) {
+}: CharactersContentProps) {
   const {
     race,
     handleRace,
