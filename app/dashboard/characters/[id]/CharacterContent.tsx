@@ -15,7 +15,6 @@ const styleDivsResponsive = "lg:block flex flex-col items-center";
 
 export const CharacterContent = async ({ params }: Props) => {
   const { id } = await params;
-
   const character = await getCharacter(Number(id));
   if (!character) notFound();
   const {
@@ -86,16 +85,16 @@ export const CharacterContent = async ({ params }: Props) => {
               <p className={`${styleCharacter}`}>{maxKi}</p>
             </div>
           </div>
-          <div className="lg:block flex justify-center">
-            {transformations.length > 0 && (
+          {transformations.length > 0 && (
+            <div className="lg:block flex justify-center">
               <Link
-                href={`/dashboard/transformations/${id}`}
+                href={"/dashboard/transformations"}
                 className="bg-slate-700 text-white py-2 px-3 rounded-2xl font-semibold hover:bg-slate-600"
               >
                 Ver transformaciones
               </Link>
-            )}
-          </div>
+            </div>
+          )}
         </div>
       </div>
     </section>

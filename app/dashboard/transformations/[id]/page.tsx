@@ -1,35 +1,33 @@
-import { notFound } from "next/navigation";
+import { Metadata } from "next";
 import { Suspense } from "react";
-import { Character } from "@/app/types";
-import { CharactersGrid } from "@/app/components/characters/CharactersGrid";
+import TransformationContent from "./TransformationContent";
+import { notFound } from "next/navigation";
+import { cacheLife } from "next/cache";
 import { getCharacter } from "@/app/lib/characters";
 
 interface Props {
   params: Promise<{ id: string }>;
 }
 
-interface TransformationsContentProps {
-  character: Character | null;
-}
-
-export const TransformationsData = async ({ params }: Props) => {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  "use cache";
+  cacheLife("hours");
   const { id } = await params;
   const character = await getCharacter(Number(id));
-  if (!character) notFound();
-  return <TransformationsContent character={character} />;
-};
+  if (!character) return notFound();
 
-export const TransformationsContent = ({ character }: TransformationsContentProps) => {
-  if (!character) notFound();
-  return <CharactersGrid characters={character.transformations} />;
+  return {
+    title: character.name,
+    description: character.name,
+  };
 }
 
 export default function TransformationsPage({ params }: Props) {
   return (
-    <Suspense
-      fallback={<p className="text-white">Cargando transformaciones...</p>}
-    >
-      <TransformationsData params={params} />
-    </Suspense>
+    <div className="text-white">
+      <Suspense fallback="Cargando transformaciones...">
+        <TransformationContent params={params} />
+      </Suspense>
+    </div>
   );
 }

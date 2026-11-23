@@ -16,8 +16,8 @@ main {
 
 /* CharactersGrid.tsx */
 /* PlanetsGrid.tsx */
-.characters-grid,
-.planets-grid {
+/* TransformationsGrid.tsx */
+@utility main-grid {
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
 }
 
