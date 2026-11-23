@@ -1,9 +1,9 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Item } from "../types";
+import { Item, Transformation } from "../types";
 import { FavoriteType, getFavoriteType, isSameFavorite } from "../lib";
 
 interface InitialState {
-  favorites: Item[];
+  favorites: (Item | Transformation)[];
 }
 
 const initialState: InitialState = {
@@ -14,7 +14,10 @@ const CharactersSlice = createSlice({
   name: "favorites",
   initialState,
   reducers: {
-    addFav: (state, action: PayloadAction<{ character: Item }>) => {
+    addFav: (
+      state,
+      action: PayloadAction<{ character: Item | Transformation }>,
+    ) => {
       const exists = state.favorites.some((item) =>
         isSameFavorite(item, action.payload.character),
       );
