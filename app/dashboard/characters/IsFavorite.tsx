@@ -1,6 +1,5 @@
 "use client";
 
-import { getFavoriteType, isSameFavorite } from "@/app/lib";
 import { useAppDispatch, useAppSelector } from "@/app/store";
 import { addFav, deleteFav } from "@/app/store/CharactersSlice";
 import { Item, Transformation } from "@/app/types";
@@ -11,8 +10,9 @@ export default function IsFavorite({
 }: {
   character: Item | Transformation;
 }) {
+  const { id } = character;
   const isFavorite = useAppSelector((state) =>
-    state.characters.favorites.some((f) => isSameFavorite(f, character)),
+    state.characters.favorites.some((item) => item.id === id),
   );
   const dispatch = useAppDispatch();
 
@@ -23,11 +23,7 @@ export default function IsFavorite({
           size={20}
           fill="currentColor"
           className="cursor-pointer text-yellow-400"
-          onClick={() =>
-            dispatch(
-              deleteFav({ id: character.id, type: getFavoriteType(character) }),
-            )
-          }
+          onClick={() => dispatch(deleteFav({ id }))}
         />
       ) : (
         <Star

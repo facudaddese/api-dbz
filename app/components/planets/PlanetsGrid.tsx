@@ -1,5 +1,5 @@
 import { Planet } from "@/app/types";
-import { Card } from "../card/Card";
+import { PlanetCard } from "./PlanetCard";
 
 interface PlanetsProps {
   planets: Planet[];
@@ -8,14 +8,8 @@ interface PlanetsProps {
 export const PlanetsGrid = ({ planets }: PlanetsProps) => {
   return (
     <section className="grid gap-5 place-content-center p-5 main-grid">
-      {planets.map((planet) => (
-        <Card
-          key={planet.id}
-          name={planet.name}
-          image={planet.image}
-          href={`/dashboard/planets/${planet.id}`}
-          imageFit="cover"
-        />
+      {planets.map((item) => (
+        <PlanetCard key={item.id} planet={item} />
       ))}
     </section>
   );
