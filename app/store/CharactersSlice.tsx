@@ -38,7 +38,7 @@ const CharactersSlice = createSlice({
     clearFav: (state) => {
       state.favorites = [];
     },
-    setFavorites: (state, action: PayloadAction<Item[]>) => {
+    setFavorites: (state, action: PayloadAction<(Item | Transformation)[]>) => {
       state.favorites = action.payload;
     },
   },
