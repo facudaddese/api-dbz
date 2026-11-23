@@ -1,5 +1,5 @@
-import { ItemPlanet } from "./planets";
-import { Transformation } from "./transformations";
+import type { ItemPlanet } from "./planets";
+import type { Transformation } from "./transformations";
 
 export interface Characters {
   items: Item[];

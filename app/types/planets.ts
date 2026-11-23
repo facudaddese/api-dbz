@@ -1,4 +1,4 @@
-import { Links, Meta } from "./characters";
+import type { Links, Meta } from "./characters";
 
 export interface Planets {
   items: Planet[];

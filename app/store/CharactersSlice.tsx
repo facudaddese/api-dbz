@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Item, Transformation } from "../types/characters";
+import { Item, Transformation } from "../types";
 
 interface InitialState {
   favorites: (Item | Transformation)[];
