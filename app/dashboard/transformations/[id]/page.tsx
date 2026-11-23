@@ -1,10 +1,15 @@
 import { notFound } from "next/navigation";
-import { getCharacter } from "../../characters/[id]/page";
-import TransformationsContent from "./TransformationsContent";
 import { Suspense } from "react";
+import { Character } from "@/app/types";
+import { CharactersGrid } from "@/app/components/characters/CharactersGrid";
+import { getCharacter } from "@/app/lib/characters";
 
 interface Props {
   params: Promise<{ id: string }>;
+}
+
+interface TransformationsContentProps {
+  character: Character | null;
 }
 
 export const TransformationsData = async ({ params }: Props) => {
@@ -13,6 +18,11 @@ export const TransformationsData = async ({ params }: Props) => {
   if (!character) notFound();
   return <TransformationsContent character={character} />;
 };
+
+export const TransformationsContent = ({ character }: TransformationsContentProps) => {
+  if (!character) notFound();
+  return <CharactersGrid characters={character.transformations} />;
+}
 
 export default function TransformationsPage({ params }: Props) {
   return (

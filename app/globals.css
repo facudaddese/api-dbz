@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+main {
+  scrollbar-width: thin;
+  scrollbar-color: oklch(76.9% 0.188 70.08) transparent;
+}
+
 /* DashboardLayout (layout.tsx) */
 @utility layout-grid {
   grid-template-areas:
@@ -10,16 +15,20 @@
 }
 
 /* CharactersGrid.tsx */
-@utility characters-grid {
+/* PlanetsGrid.tsx */
+.characters-grid,
+.planets-grid {
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
 }
 
-/* CharacterContent (Page.tsx)*/
+/* CharacterContent.tsx*/
 @utility character-grid {
-  grid-template-columns: auto auto;
+  grid-template-areas: "character description description";
 }
 
-main {
-  scrollbar-width: thin;
-  scrollbar-color: oklch(76.9% 0.188 70.08) transparent;
+/* CharacterContent.tsx*/
+@utility character-grid-responsive {
+  grid-template-areas:
+    "character"
+    "description";
 }
