@@ -24,6 +24,19 @@ export default function TransformationsContent({
       ].includes(item.name);
     }
 
+    if (character === "Gohan") {
+      return [
+        "Gohan SSJ",
+        "Gohan SSJ2",
+        "Gohan Ultimate",
+        "Gohan Beast",
+      ].includes(item.name);
+    }
+
+    if (character === "Gotenks") {
+      return ["Gotenks SSJ", "Gotenks SSJ3"].includes(item.name);
+    }
+
     return item.name.includes(character);
   });
   return (
