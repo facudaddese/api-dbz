@@ -31,7 +31,7 @@ export const PlanetContent = async ({ params }: Props) => {
         />
         <div className="flex flex-col gap-5 xl:items-start items-center">
           <div className="flex justify-center items-center flex-col xl:block">
-            <h2 className="text-4xl md:text-5xl font-bold text-center md:text-start">
+            <h2 className="text-4xl md:text-5xl font-bold text-center md:text-start pb-1">
               {name}
             </h2>
             <span
