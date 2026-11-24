@@ -235,7 +235,3 @@ npm run dev
 
 Abrir [http://localhost:3000](http://localhost:3000) en el navegador.
 
-
-## Autor
-
-Desarrollado por **Facundo D'Addese** — Estudiante de Licenciatura en Sistemas 
