@@ -1,10 +1,7 @@
 
 # Dragon Ball Explorer
 
-Aplicación web inspirada en el universo de **Dragon Ball Z**, desarrollada para explorar personajes, planetas y transformaciones. Permite descubrir información del universo Dragon Ball mediante una interfaz interactiva, filtros dinámicos y un sistema de favoritos persistente.
-
-## Demo
-[Preview](https://dragonball-explorer.vercel.app/dashboard/characters)
+Aplicación web inspirada en el universo de **Dragon Ball Z**, desarrollada para explorar personajes, planetas y transformaciones. Permite descubrir información del universo Dragon Ball mediante una interfaz interactiva, filtros dinámicos y un sistema de favoritos persistente. [Preview](https://dragonball-explorer.vercel.app/dashboard/characters)
 
 ##  Tecnologías utilizadas
 
