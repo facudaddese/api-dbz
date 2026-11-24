@@ -7,17 +7,14 @@ import type { RootState } from "./store";
 
 export default function FavoritesPersistence() {
   const dispatch = useDispatch();
-
   const favorites = useSelector(
     (state: RootState) => state.characters.favorites,
   );
-
   const [hydrated, setHydrated] = useState(false);
 
   useEffect(() => {
     try {
       const saved = localStorage.getItem("favorites");
-
       if (saved) {
         dispatch(setFavorites(JSON.parse(saved)));
       }

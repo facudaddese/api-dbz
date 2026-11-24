@@ -9,7 +9,7 @@ interface CharactersGridProps {
 export const CharactersGrid = ({ characters }: CharactersGridProps) => {
   if (!characters) return;
   return (
-    <section className="grid gap-5 place-content-center p-5 main-grid">
+    <section className="grid gap-5 place-content-center p-5 lg:main-grid main-grid-responsive">
       {characters.map((item) => {
         const isCharacter = "race" in item;
         return (

@@ -53,7 +53,7 @@ export const Content = ({
         <div className="[grid-area:description] flex gap-5 justify-center flex-col py-5">
           <div className={styleDivsResponsive}>
             <div className="flex items-center gap-3 justify-center lg:justify-start">
-              <h1 className="text-5xl font-bold pb-1">{name}</h1>
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold pb-1">{name}</h1>
               {favorite}
             </div>
             {subtitle && <span className={styleValue}>{subtitle}</span>}
