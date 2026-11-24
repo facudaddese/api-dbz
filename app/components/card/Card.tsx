@@ -48,7 +48,7 @@ export const Card = ({
       />
 
       <div className="flex flex-col justify-center items-center gap-1 p-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-white">{name}</h2>
+        <h2 className="text-[25px] font-bold text-white">{name}</h2>
         {subtitle && (
           <span className="text-[14px] rounded-xl text-yellow-400/95 px-2">
             {subtitle}
