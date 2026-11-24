@@ -2,7 +2,7 @@
 
 import { TransformationsGrid } from "@/app/components";
 import { Filters } from "@/app/components/filters/transformations/Filters";
-import { useFilters } from "@/app/hooks/useFilters";
+import { useFilters } from "@/app/hooks";
 import { Transformation } from "@/app/types";
 
 interface TransformationsContentProps {

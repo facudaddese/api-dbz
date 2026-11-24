@@ -10,7 +10,7 @@ export const TransformationsGrid = ({
   transformations,
 }: TransformationsGridProps) => {
   return (
-    <section className="grid gap-5 place-content-center p-5 main-grid">
+    <section className="grid gap-5 place-content-center p-5 lg:main-grid main-grid-responsive">
       {transformations?.map((item) => (
         <Card
           key={item.id}
