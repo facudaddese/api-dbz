@@ -3,7 +3,7 @@ import { Suspense } from "react";
 import TransformationContent from "./TransformationContent";
 import { notFound } from "next/navigation";
 import { cacheLife } from "next/cache";
-import { getCharacter } from "@/app/lib/characters";
+import { getTransformation } from "@/app/lib/transformations";
 
 interface Props {
   params: Promise<{ id: string }>;
@@ -13,12 +13,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   "use cache";
   cacheLife("hours");
   const { id } = await params;
-  const character = await getCharacter(Number(id));
-  if (!character) return notFound();
+  const transformation = await getTransformation(Number(id));
+  if (!transformation) return notFound();
 
   return {
-    title: character.name,
-    description: character.name,
+    title: transformation.name,
+    description: `${transformation.name} - Ki: ${transformation.ki}`,
   };
 }
 
