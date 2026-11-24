@@ -15,7 +15,7 @@ export const Filters = ({
   handleClear,
 }: FiltersProps) => {
   return (
-    <div className="flex flex-wrap justify-center items-center gap-5 p-3">
+    <div className="flex flex-wrap justify-center items-center gap-5 md:p-3">
       {/* Personaje */}
       <select
         name="character"

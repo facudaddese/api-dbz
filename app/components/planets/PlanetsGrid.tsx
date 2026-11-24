@@ -7,7 +7,7 @@ interface PlanetsProps {
 
 export const PlanetsGrid = ({ planets }: PlanetsProps) => {
   return (
-    <section className="grid gap-5 place-content-center p-5 lg:main-grid main-grid-responsive">
+    <section className="grid gap-5 place-content-center px-5 md:p-5 lg:main-grid main-grid-responsive">
       {planets.map((planet) => (
         <Card
           key={planet.id}

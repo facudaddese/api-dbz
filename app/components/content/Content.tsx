@@ -33,7 +33,7 @@ export const Content = ({
   action,
 }: ContentProps) => {
   return (
-    <section className="p-5 h-screen">
+    <section className="px-5 pb-5 md:p-5 h-screen">
       <BackButton href={backHref} />
 
       <div className="grid justify-items-center place-content-center my-auto lg:h-[95%] justify-center gap-5 lg:gap-20 character-grid-responsive lg:character-grid">
@@ -53,7 +53,7 @@ export const Content = ({
         <div className="[grid-area:description] flex gap-5 justify-center flex-col py-5">
           <div className={styleDivsResponsive}>
             <div className="flex items-center gap-3 justify-center lg:justify-start">
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold pb-1">{name}</h1>
+              <h1 className="text-4xl md:text-5xl lg:text-5xl font-bold pb-1">{name}</h1>
               {favorite}
             </div>
             {subtitle && <span className={styleValue}>{subtitle}</span>}

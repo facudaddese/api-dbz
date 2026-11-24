@@ -22,8 +22,8 @@ export const Sidebar = () => {
   const { menu, handleMenu } = useSidebarMenu();
 
   return (
-    <aside className="[grid-area:sidebar] flex flex-col justify-between items-end md:border md:border-r-slate-700/80 p-2">
-      <div className="w-full h-55">
+    <aside className="[grid-area:sidebar] flex flex-col justify-between items-end md:border md:border-r-slate-700/80 pt-2 px-2 md:p-2">
+      <div className="w-full h-50">
         {modal && (
           <Menu
             className="text-amber-500/95 absolute"

@@ -34,7 +34,7 @@ export const Filters = ({
   handleClear,
 }: FiltersProps) => {
   return (
-    <div className="flex flex-wrap flex-col items-center gap-5 p-3">
+    <div className="flex flex-wrap flex-col items-center gap-5 px-3 pb-3 md:p-3">
       <input
         id="text"
         type="text"
@@ -43,7 +43,7 @@ export const Filters = ({
         value={input}
         onChange={handleInput}
       />
-      <div className="flex items-center justify-center flex-wrap gap-3">
+      <div className="grid grid-cols-1 sm:flex items-center justify-center flex-wrap gap-3">
         {/* Raza */}
         <select
           name="race"
